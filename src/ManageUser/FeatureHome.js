@@ -1,6 +1,6 @@
 import React from 'react';
 import './FeatureHome.css';
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
  
 const GridBox = ({ data }) => {
@@ -203,20 +203,20 @@ const FeatureHome = () => {
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
-        <div className="footer-section">
-          <h3>Follow Us</h3>
-          <div className="social-icons">
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
+        // <div className="footer-section">
+        //   <h3>Follow Us</h3>
+        //   <div className="social-icons">
+        //     <a href="#" target="_blank" rel="noopener noreferrer">
+        //       <i className="fab fa-facebook"></i>
+        //     </a>
+        //     <a href="#" target="_blank" rel="noopener noreferrer">
+        //       <i className="fab fa-twitter"></i>
+        //     </a>
+        //     <a href="#" target="_blank" rel="noopener noreferrer">
+        //       <i className="fab fa-instagram"></i>
+        //     </a>
+        //   </div>
+        // </div>
       </div>
       <div className="footer-bottom">
         <p>&copy; 2023 Team1 Website. All rights reserved.</p>
