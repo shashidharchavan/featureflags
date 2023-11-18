@@ -30,8 +30,7 @@ export default function NewFeature(props) {
   const handleClick = () => {
  
     //console.log(product)
-    axios.post(url, user).
-      then(resp => {
+    axios.post(url, user).then(resp => {
  
       }).catch(er => {
         console.log(er);
