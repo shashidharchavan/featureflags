@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Implementing Azure Feature Flags in React and MVC
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+Feature flags, also known as feature toggles, play a pivotal role in modern software development. They empower developers to dynamically enable or disable specific features at runtime, offering flexibility, control, and a platform for experimentation. This Markdown document provides a comprehensive overview of the journey involved in implementing Azure Feature Flags in a React and MVC (Model-View-Controller) project.
 
-## Available Scripts
+## Why Feature Flags?
 
-In the project directory, you can run:
+Feature flags bring a multitude of advantages to software development, including:
 
-### `npm start`
+- **Continuous Deployment:** Simplifies the release of new features without necessitating a complete application deployment.
+  
+- **A/B Testing:** Enables the testing of different feature versions with a subset of users, facilitating data-driven decision-making.
+  
+- **Rollback Capability:** Provides the ability to quickly roll back a feature if issues or negative user feedback arise post-release.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Implementation Steps
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 1. Manual Implementation
+The initial manual implementation of feature flags proved relatively straightforward. However, the process encountered a significant hurdle when attempting to establish a connection to Azure using its provided connection string.
 
-### `npm test`
+### 2. Connecting to Azure
+Connecting to Azure posed a substantial challenge due to difficulties encountered with the provided connection string. After exploring various methods, a solution emerged by meticulously following the comprehensive documentation provided by Windows Azure.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Realtime Refresh
+A critical issue surfaced when toggling feature flags in the Azure portal – changes were not reflected in real-time without a manual code refresh. To address this, a polling technique was implemented to automatically refresh the feature flags after a set interval when the toggle button is changed.
 
-### `npm run build`
+## Difficulties Encountered
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Azure Connection String
+Establishing a connection to Azure using the provided connection string proved to be more intricate than anticipated. The challenges included:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Ambiguous Documentation:** The Azure documentation initially lacked clarity on certain aspects related to the connection string, leading to confusion during the implementation phase.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Trial and Error:** Multiple attempts were made using different approaches, but each encountered roadblocks. This necessitated a deeper dive into Azure's documentation and community forums.
 
-### `npm run eject`
+### 2. Realtime Refresh
+Ensuring a real-time refresh of feature flags posed its own set of challenges:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Codebase Synchronization:** The need for manual code refreshes after toggling feature flags in the Azure portal presented synchronization issues. This was especially problematic during rapid development cycles.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Optimizing Polling Interval:** Determining the optimal polling interval for automatic refresh without causing performance degradation or excessive network requests required fine-tuning.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Realtime Usage in Data Scientist Web Application
+In the context of our web application tailored for data scientists, the implementation of feature flags has profound implications:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Base License:** Users with a base license are presented with specific feature options tailored to their license type, ensuring a personalized and relevant experience.
 
-## Learn More
+- **Premium License:** Users with a premium license enjoy unrestricted access to all feature options, maximizing the utility of our application for advanced users.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This approach ensures that our web application adapts dynamically to the user's license type, offering a seamless and customized experience.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion
+The successful implementation of Azure Feature Flags in our React and MVC project has fortified our feature management system. Overcoming challenges related to connection strings and real-time updates has not only enhanced the flexibility of our application but also streamlined the development and release processes.
